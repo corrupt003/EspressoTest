@@ -44,4 +44,13 @@ class OnViewActivityTest {
         // Step 3: Find button in OnViewActivity2 and click it.
         // Step 4: Find a TextView with id `R.id.text_header_replay` in OnViewActivity1, and check it is displayed.
     }
+
+    @Test
+    fun textInputOutput_send_text_from_Activity1_to_Activity2() {
+        // Step 1: Define the desired input string.
+        // Step 2: In Activity1, find the text view, and type the desired string.
+        // Step 3: In Activity1, find the button, and click it.
+        // Step 4: In Activity2, find the TextView with id `text_message`,
+        // and check it's text is the desired input string or not.
+    }
 }

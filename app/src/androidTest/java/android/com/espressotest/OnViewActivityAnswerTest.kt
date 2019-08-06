@@ -3,9 +3,9 @@ package android.com.espressotest
 import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.android.espressotest.OnViewActivity1
@@ -52,5 +52,21 @@ class OnViewActivityAnswerTest {
 
         onView(withId(R.id.button_reply)).perform(click())
         onView(withId(R.id.text_header_reply)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun textInputOutput_send_text_from_Activity1_to_Activity2() {
+        // The desired input string.
+        val text = "This is a test."
+
+        // In Activity1, find the text view, and type the desired string.
+        onView(withId(R.id.editText_activity1)).perform(typeText(text))
+
+        // In Activity1, find the button, and click it.
+        onView(withId(R.id.button_send)).perform(click())
+
+        // In Activity2, find the TextView with id `text_message`,
+        // and check it's text is the desired input string or not.
+        onView(withId(R.id.text_message)).check(matches(withText(text)))
     }
 }

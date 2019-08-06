@@ -37,7 +37,7 @@ class OnViewActivity1 : AppCompatActivity() {
         setContentView(R.layout.activity_onview1)
 
         // Initialize all the view variables.
-        mMessageEditText = findViewById(R.id.editText_main)
+        mMessageEditText = findViewById(R.id.editText_activity1)
         mReplyHeadTextView = findViewById(R.id.text_header_reply)
         mReplyTextView = findViewById(R.id.text_message_reply)
     }
