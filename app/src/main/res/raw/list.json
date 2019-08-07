@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "image": "ic_android_32dp",
+      "title": "This is title 1",
+      "text": "He who has health has hope",
+      "check_box": false
+    },
+    {
+      "image": "ic_bug_32dp",
+      "title": "This is title 22",
+      "text": "A rolling stone gathers no moss",
+      "check_box": false
+    },
+    {
+      "image": "ic_smile_32dp",
+      "title": "This is title 333",
+      "text": "An apple a day, keeps the doctor away",
+      "check_box": false
+    },
+    {
+      "image": "ic_android_32dp",
+      "title": "This is title 4444",
+      "text": "Look before you leap",
+      "check_box": false
+    },
+    {
+      "image": "ic_bug_32dp",
+      "title": "This is title 55555",
+      "text": "Haste makes waste",
+      "check_box": false
+    },
+    {
+      "image": "ic_smile_32dp",
+      "title": "This is title 666666",
+      "text": "Do in Rome as the Romans do",
+      "check_box": false
+    }
+  ]
+}
