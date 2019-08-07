@@ -4,6 +4,9 @@ import android.com.espressotest.R
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -42,6 +45,26 @@ class OnViewActivity1 : AppCompatActivity() {
         mReplyTextView = findViewById(R.id.text_message_reply)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.activity1_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        item?.let {
+            when(it.itemId) {
+                R.id.to_listview -> toListViewActivity()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun toListViewActivity() {
+        val intent = Intent(this, ListViewActivity::class.java)
+        startActivity(intent)
+    }
+
     /**
      * Handles the onClick for the "Send" button. Gets the value of the main EditText,
      * creates an intent, and launches the second activity with that intent.
@@ -75,11 +98,11 @@ class OnViewActivity1 : AppCompatActivity() {
                 val reply = data?.getStringExtra(OnViewActivity2.EXTRA_REPLY)
 
                 // Make the reply head visible.
-                mReplyHeadTextView!!.visibility = View.VISIBLE
+                mReplyHeadTextView?.visibility = View.VISIBLE
 
                 // Set the reply and make it visible.
-                mReplyTextView!!.text = reply
-                mReplyTextView!!.visibility = View.VISIBLE
+                mReplyTextView?.text = reply
+                mReplyTextView?.visibility = View.VISIBLE
             }
         }
     }
