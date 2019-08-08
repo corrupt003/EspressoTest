@@ -73,6 +73,7 @@ class OnViewActivity1 : AppCompatActivity() {
      *
      * @param view The view (Button) that was clicked.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun launchSecondActivity(view: View) {
         Log.d(LOG_TAG, "Button clicked!")
         val intent = Intent(this, OnViewActivity2::class.java)

@@ -36,7 +36,7 @@ class OnViewActivity2 : AppCompatActivity() {
 
         // Put that message into the text_message TextView
         val textView: TextView = findViewById(R.id.text_message)
-        textView.setText(message)
+        textView.text = message
     }
 
     /**
@@ -46,6 +46,7 @@ class OnViewActivity2 : AppCompatActivity() {
      *
      * @param view The view (Button) that was clicked.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun returnReply(view: View) {
         // Get the reply message from the edit text.
         val reply = mReply!!.text.toString()
