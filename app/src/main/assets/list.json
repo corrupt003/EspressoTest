@@ -35,6 +35,42 @@
       "title": "This is title 666666",
       "text": "Do in Rome as the Romans do",
       "check_box": false
+    },
+    {
+      "image": "ic_android_32dp",
+      "title": "This is title 7777777",
+      "text": "Money makes the mare go",
+      "check_box": false
+    },
+    {
+      "image": "ic_bug_32dp",
+      "title": "This is title 88888888",
+      "text": "Where there is smoke, there is fire",
+      "check_box": false
+    },
+    {
+      "image": "ic_smile_32dp",
+      "title": "This is title 999999999",
+      "text": "The pot calls the kettle black",
+      "check_box": false
+    },
+    {
+      "image": "ic_android_32dp",
+      "title": "This is title 1010101010",
+      "text": "Not getting what you want is sometimes a wonderful stroke of luck",
+      "check_box": false
+    },
+    {
+      "image": "ic_bug_32dp",
+      "title": "This is title 111111111111",
+      "text": "Every dog has his day",
+      "check_box": false
+    },
+    {
+      "image": "ic_smile_32dp",
+      "title": "This is title 12121212121212",
+      "text": "It is as well to know which way the wind blows",
+      "check_box": false
     }
   ]
 }
