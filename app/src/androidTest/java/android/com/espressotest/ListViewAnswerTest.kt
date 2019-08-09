@@ -11,6 +11,7 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.rule.ActivityTestRule
 import com.android.espressotest.ListViewActivity
 import matchers.LongListMatcher.Companion.withBackgroundColor
+import matchers.LongListMatcher.Companion.withContentText
 import org.hamcrest.CoreMatchers.*
 import org.junit.Rule
 import org.junit.Test
@@ -42,5 +43,16 @@ class ListViewAnswerTest {
                 .atPosition(9)
                 .perform(click())
                 .check(matches(withBackgroundColor(R.color.list_item_click)))
+    }
+
+    @Test
+    fun findDataWithText_findCheckBox_clickAndCheck() {
+        val interaction = onData(
+            withContentText("It is as well to know which way the wind blows")
+        )
+
+        interaction.onChildView(withId(R.id.listview_item_checkbox))
+            .perform(click())
+            .check(matches(isChecked()))
     }
 }

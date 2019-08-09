@@ -27,4 +27,13 @@ class ListViewTest {
         //         You can write your own custom matcher, or use the pre-define
         //         one `withBackgroundColor()`.
     }
+
+    @Test
+    fun findDataWithText_findCheckBox_clickAndCheck() {
+        // Step 1: Use `onData()` with desired text.
+        //         Tips: You can use LongListMatcher.withContentText().
+        // Step 2: Find CheckBox with its id.
+        // Step 3: Click the CheckBox.
+        // Step 4: Check it is checked or not.
+    }
 }

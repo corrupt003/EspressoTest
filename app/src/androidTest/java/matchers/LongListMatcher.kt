@@ -4,6 +4,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.View
 import androidx.annotation.ColorRes
+import androidx.test.espresso.matcher.BoundedMatcher
+import com.android.espressotest.data.Data
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -39,6 +41,21 @@ class LongListMatcher {
                     }
 
                     return backgroundColor == expectedColor
+                }
+            }
+        }
+
+        /**
+         * Find a [Data] which the [Data.title] or [Data.text] is match to the given text.
+         */
+        fun withContentText(text: String): Matcher<Any> {
+            return object : BoundedMatcher<Any, Data>(Data::class.java) {
+                override fun describeTo(description: Description) {
+                    description.appendText("with text '$text'")
+                }
+
+                public override fun matchesSafely(data: Data): Boolean {
+                    return data.text == text
                 }
             }
         }

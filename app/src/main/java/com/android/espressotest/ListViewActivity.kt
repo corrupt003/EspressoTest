@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.android.espressotest.data.Data
 import com.android.espressotest.data.ListData
 import com.android.espressotest.extensions.toImageResId
 import com.google.gson.Gson
@@ -60,13 +61,13 @@ class ListViewActivity : AppCompatActivity() {
     }
 
     private fun setupListView() {
-        adapter = ListAdapter(this, listData)
+        adapter = ListAdapter(this, listData.data)
         listView.adapter = adapter
         // Define click event to change background color
         // instead of using `android:choiceMode` and `android:listSelector`
         // in layout xml to easy test this scenario.
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            adapter.notifiyDataClicked(position)
+            adapter.notifyDataClicked(position)
         }
     }
 
@@ -76,7 +77,7 @@ class ListViewActivity : AppCompatActivity() {
 
     class ListAdapter(
             private val context: Context,
-            private val list: ListData
+            private val data: List<Data>
     ) : BaseAdapter() {
 
         private var clickPosition = -1
@@ -103,10 +104,10 @@ class ListViewActivity : AppCompatActivity() {
                 viewHolder = root.tag as ViewHolder
             }
 
-            viewHolder.image.setImageResource(list.data[position].image.toImageResId())
-            viewHolder.title.text = list.data[position].title
-            viewHolder.message.text = list.data[position].text
-            viewHolder.checkbox.isChecked = list.data[position].check_box
+            viewHolder.image.setImageResource(data[position].image.toImageResId())
+            viewHolder.title.text = data[position].title
+            viewHolder.message.text = data[position].text
+            viewHolder.checkbox.isChecked = data[position].check_box
 
             if (position == clickPosition) {
                 viewHolder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.list_item_click))
@@ -117,7 +118,7 @@ class ListViewActivity : AppCompatActivity() {
         }
 
         override fun getItem(position: Int): Any {
-            return list.data[position]
+            return data[position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -125,10 +126,10 @@ class ListViewActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            return list.data.size
+            return data.size
         }
 
-        fun notifiyDataClicked(position: Int) {
+        fun notifyDataClicked(position: Int) {
             clickPosition = position
             notifyDataSetChanged()
         }
