@@ -13,9 +13,18 @@ class ListViewTest {
     val mActivityRule = ActivityTestRule(OnViewActivity1::class.java)
 
     @Test
-    fun launchActivity_fromOnViewActivity1_toListViewActivity_checkTitle() {
-        // Step 1: Open `ActionBar` menu.
-        // Step 2: Click the first item, a.k.a `ListView` item, and may jump to ListViewActivity.
-        // Step 3: Check the `ActionBar` title with text `ListView Page` in ListViewActivity.
+    fun checkTitle() {
+        // Do it yourself :)
+    }
+
+    @Test
+    fun clickItem10_checkBackground() {
+        // Step 1: Use `onData()` to get `DataInteraction`.
+        // Step 2: Find ListView with id `R.id.list_view`.
+        // Step 3: Scroll to the 10th position (index is 9).
+        // Step 4: Click the item.
+        // Step 5: Check the background color is `R.color.list_item_click`.
+        //         You can write your own custom matcher, or use the pre-define
+        //         one `withBackgroundColor()`.
     }
 }

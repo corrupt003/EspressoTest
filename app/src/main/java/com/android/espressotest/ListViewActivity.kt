@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.android.espressotest.data.ListData
 import com.android.espressotest.extensions.toImageResId
 import com.google.gson.Gson
@@ -27,6 +28,11 @@ class ListViewActivity : AppCompatActivity() {
      */
     private lateinit var listView: ListView
 
+    /**
+     * The data holder.
+     */
+    private lateinit var adapter: ListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listview)
@@ -41,7 +47,7 @@ class ListViewActivity : AppCompatActivity() {
         super.onStart()
         // Change Appbar title.
         supportActionBar?.title = getString(R.string.list_view_activity_title)
-        listView.adapter = ListAdapter(this, listData)
+        setupListView()
     }
 
     private fun getJsonReaderFromAssets(): Reader {
@@ -53,6 +59,17 @@ class ListViewActivity : AppCompatActivity() {
         listView = findViewById(R.id.list_view)
     }
 
+    private fun setupListView() {
+        adapter = ListAdapter(this, listData)
+        listView.adapter = adapter
+        // Define click event to change background color
+        // instead of using `android:choiceMode` and `android:listSelector`
+        // in layout xml to easy test this scenario.
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            adapter.notifiyDataClicked(position)
+        }
+    }
+
     companion object {
         private val TAG: String = ListViewActivity::class.java.simpleName
     }
@@ -61,6 +78,8 @@ class ListViewActivity : AppCompatActivity() {
             private val context: Context,
             private val list: ListData
     ) : BaseAdapter() {
+
+        private var clickPosition = -1
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val root: View
@@ -89,6 +108,11 @@ class ListViewActivity : AppCompatActivity() {
             viewHolder.message.text = list.data[position].text
             viewHolder.checkbox.isChecked = list.data[position].check_box
 
+            if (position == clickPosition) {
+                viewHolder.rootView.setBackgroundColor(ContextCompat.getColor(context, R.color.list_item_click))
+            } else {
+                viewHolder.rootView.setBackgroundColor(ContextCompat.getColor(context, android.R.color.transparent))
+            }
             return root
         }
 
@@ -102,6 +126,11 @@ class ListViewActivity : AppCompatActivity() {
 
         override fun getCount(): Int {
             return list.data.size
+        }
+
+        fun notifiyDataClicked(position: Int) {
+            clickPosition = position
+            notifyDataSetChanged()
         }
     }
 
