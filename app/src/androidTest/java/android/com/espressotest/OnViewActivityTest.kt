@@ -48,9 +48,30 @@ class OnViewActivityTest {
     @Test
     fun textInputOutput_send_text_from_Activity1_to_Activity2() {
         // Step 1: Define the desired input string.
-        // Step 2: In Activity1, find the text view, and type the desired string.
+        // Step 2: In Activity1, find the EditText, and type the desired string.
         // Step 3: In Activity1, find the button, and click it.
         // Step 4: In Activity2, find the TextView with id `text_message`,
-        // and check it's text is the desired input string or not.
+        //         and check it's text is the desired input string or not.
+    }
+
+    @Test
+    fun scrollView_findButton_click2Times_checkTextView() {
+        // Step 1: Find the Button with id `scrollview_button` in ScrollView.
+        // Step 2: Scroll to that view, and click two times.
+        // Step 3: Find the TextView with id `scrollview_button_text`.
+        // Step 4: Check that TextView display the text `Click 2 times` or not.
+
+        // Bones: What if we use `NestedScrollView` instead of `ScrollView` in the layout file?
+    }
+
+    @Test
+    fun scrollView_findSwitch_click_checkSwitch_checkTextView() {
+        // Step 1: Find the Switch with id `scrollview_switch` in ScrollView.
+        // Step 2: Scroll to that view, and click it to switch on.
+        // Step 3: Check the Switch is set checked or not (isChecked()).
+        // Step 4: Find the TextView with id `scrollview_switch_text` in ScrollView.
+        // Step 5: Check the view display the text `Switch ON` or not.
+
+        // Bones: What if we use `NestedScrollView` instead of `ScrollView` in the layout file?
     }
 }

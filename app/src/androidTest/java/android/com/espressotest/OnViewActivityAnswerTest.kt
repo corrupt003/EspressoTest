@@ -1,5 +1,6 @@
 package android.com.espressotest
 
+import actions.CustomAction.Companion.betterScrollTo
 import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -68,5 +69,24 @@ class OnViewActivityAnswerTest {
         // In Activity2, find the TextView with id `text_message`,
         // and check it's text is the desired input string or not.
         onView(withId(R.id.text_message)).check(matches(withText(text)))
+    }
+
+    @Test
+    fun scrollView_findButton_click2Times_checkTextView() {
+        onView(withId(R.id.scrollview_button))
+                .perform(betterScrollTo(), click(), click())
+
+        onView(withId(R.id.scrollview_button_text))
+                .check(matches(withText("Click 2 times")))
+    }
+
+    @Test
+    fun scrollView_findSwitch_click_checkSwitch_checkTextView() {
+        onView(withId(R.id.scrollview_switch))
+                .perform(betterScrollTo(), click())
+                .check(matches(isChecked()))
+
+        onView(withId(R.id.scrollview_switch_text))
+                .check(matches(withText("Switch ON")))
     }
 }
