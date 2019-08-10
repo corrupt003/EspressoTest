@@ -23,6 +23,14 @@
     <string name="editText_second">Enter Your Reply Here</string>
     <string name="text_header_reply">Reply Received</string>
 
+    <string name="description_header_image">Header Image</string>
+    <string name="description_footer_image">Footer Image</string>
+    <string name="scrollview_textview">TextView in ScrollView</string>
+    <string name="just_click">Just Click</string>
+    <string name="click_times">Click %d times</string>
+    <string name="switch_on">Switch ON</string>
+    <string name="switch_off">Switch OFF</string>
+
     <string name="list_view">ListView</string>
     <string name="recycler_view">RecyclerView</string>
 

@@ -16,13 +16,15 @@
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.android.espressotest.OnViewActivity1"
-        tools:ignore="RtlHardcoded, Autofill">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.android.espressotest.OnViewActivity1"
+    tools:ignore="RtlHardcoded, Autofill, HardcodedText">
 
     <TextView
         android:id="@+id/text_header_reply"
@@ -36,7 +38,8 @@
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="hahaha"/>
 
     <TextView
         android:id="@+id/text_message_reply"
@@ -57,8 +60,10 @@
         android:layout_marginRight="16dp"
         android:text="@string/button_send"
         android:onClick="launchSecondActivity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/editText_activity1"
+        app:layout_constraintTop_toTopOf="@id/editText_activity1"
+        app:layout_constraintBottom_toBottomOf="@id/editText_activity1"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editText_activity1"
@@ -70,7 +75,107 @@
         android:ems="10"
         android:hint="@string/editText_main"
         android:inputType="textLongMessage"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_send"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_message_reply"
+        tools:text="editText_activity1"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview_activity1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText_activity1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:id="@+id/scrollview_header_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/description_header_image"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_android_32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/scrollview_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/scrollview_textview"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_header_image"
+                tools:text="@string/scrollview_textview" />
+
+            <Button
+                android:id="@+id/scrollview_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:padding="10dp"
+                android:text="@string/just_click"
+                app:layout_constraintEnd_toStartOf="@id/scrollview_button_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_textview" />
+
+            <TextView
+                android:id="@+id/scrollview_button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@id/scrollview_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/scrollview_button"
+                app:layout_constraintTop_toTopOf="@id/scrollview_button"
+                tools:text="@string/click_times" />
+
+            <Switch
+                android:id="@+id/scrollview_switch"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toStartOf="@id/scrollview_switch_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_button_text" />
+
+            <TextView
+                android:id="@+id/scrollview_switch_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/switch_off"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@id/scrollview_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/scrollview_switch"
+                app:layout_constraintTop_toTopOf="@id/scrollview_switch"
+                tools:text="@string/switch_off" />
+
+            <ImageView
+                android:id="@+id/scrollview_footer_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/description_footer_image"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_smile_32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scrollview_switch_text"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

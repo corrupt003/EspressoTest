@@ -8,7 +8,9 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -30,6 +32,13 @@ class OnViewActivity1 : AppCompatActivity() {
     // TextView for the reply body
     private var mReplyTextView: TextView? = null
 
+    private lateinit var scrollviewButton: Button
+    private lateinit var scrollviewButtonTextView: TextView
+    private lateinit var scrollviewSwitch: Switch
+    private lateinit var scrollviewSwitchTextView: TextView
+
+    private var clickTime = 0
+
     /**
      * Initializes the activity.
      *
@@ -43,6 +52,14 @@ class OnViewActivity1 : AppCompatActivity() {
         mMessageEditText = findViewById(R.id.editText_activity1)
         mReplyHeadTextView = findViewById(R.id.text_header_reply)
         mReplyTextView = findViewById(R.id.text_message_reply)
+
+        scrollviewButton = findViewById(R.id.scrollview_button)
+        scrollviewButtonTextView = findViewById(R.id.scrollview_button_text)
+        scrollviewSwitch = findViewById(R.id.scrollview_switch)
+        scrollviewSwitchTextView = findViewById(R.id.scrollview_switch_text)
+        scrollviewButtonTextView.text = getString(R.string.click_times, clickTime)
+
+        setListeners()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -58,6 +75,20 @@ class OnViewActivity1 : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setListeners() {
+        scrollviewButton.setOnClickListener {
+            scrollviewButtonTextView.text = getString(R.string.click_times, ++clickTime)
+        }
+
+        scrollviewSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                scrollviewSwitchTextView.text = getString(R.string.switch_on)
+            } else {
+                scrollviewSwitchTextView.text = getString(R.string.switch_off)
+            }
+        }
     }
 
     private fun toListViewActivity() {
