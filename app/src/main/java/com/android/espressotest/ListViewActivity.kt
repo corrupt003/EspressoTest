@@ -14,8 +14,6 @@ import com.android.espressotest.data.Data
 import com.android.espressotest.data.ListData
 import com.android.espressotest.extensions.toImageResId
 import com.google.gson.Gson
-import java.io.InputStreamReader
-import java.io.Reader
 
 
 class ListViewActivity : AppCompatActivity() {
@@ -40,7 +38,7 @@ class ListViewActivity : AppCompatActivity() {
 
         findAndSetView()
         val gson = Gson()
-        listData = gson.fromJson(getJsonReaderFromAssets(), ListData::class.java)
+        listData = gson.fromJson(Utils.getJsonReaderFromAssets(assets), ListData::class.java)
         Log.i(TAG, "listData = $listData")
     }
 
@@ -49,11 +47,6 @@ class ListViewActivity : AppCompatActivity() {
         // Change Appbar title.
         supportActionBar?.title = getString(R.string.list_view_activity_title)
         setupListView()
-    }
-
-    private fun getJsonReaderFromAssets(): Reader {
-        val `is` = assets.open("list.json")
-        return InputStreamReader(`is`, "UTF-8")
     }
 
     private fun findAndSetView() {

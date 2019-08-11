@@ -85,6 +85,7 @@ class OnViewActivity1 : AppCompatActivity() {
         item?.let {
             when(it.itemId) {
                 R.id.to_listview -> toListViewActivity()
+                R.id.to_recyclerview -> toRecyclerViewActivity()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -147,6 +148,11 @@ class OnViewActivity1 : AppCompatActivity() {
 
     private fun toListViewActivity() {
         val intent = Intent(this, ListViewActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun toRecyclerViewActivity() {
+        val intent = Intent(this, RecyclerViewActivity::class.java)
         startActivity(intent)
     }
 

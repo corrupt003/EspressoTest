@@ -10,4 +10,7 @@
 
     <dimen name="listview_padding">20dp</dimen>
     <dimen name="listview_margin">10dp</dimen>
+
+    <dimen name="recyclerview_padding">20dp</dimen>
+    <dimen name="recyclerView_image_size">80dp</dimen>
 </resources>
