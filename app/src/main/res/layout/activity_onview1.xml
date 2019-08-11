@@ -91,15 +91,16 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollview_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:paddingBottom="50dp">
+            android:layout_marginTop="@dimen/scrollview_margin"
+            android:paddingBottom="@dimen/scrollview_padding">
 
             <ImageView
                 android:id="@+id/scrollview_header_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/scrollview_image_size"
+                android:layout_height="@dimen/scrollview_image_size"
                 android:contentDescription="@string/description_header_image"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_android_32dp"
@@ -111,10 +112,10 @@
                 android:id="@+id/scrollview_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/scrollview_margin"
                 android:text="@string/scrollview_textview"
                 android:textColor="@color/colorAccent"
-                android:textSize="30sp"
+                android:textSize="@dimen/scrollview_textview_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scrollview_header_image"
@@ -124,8 +125,8 @@
                 android:id="@+id/scrollview_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:padding="10dp"
+                android:layout_marginTop="@dimen/scrollview_padding"
+                android:padding="@dimen/scrollview_button_padding"
                 android:text="@string/just_click"
                 app:layout_constraintEnd_toStartOf="@id/scrollview_button_text"
                 app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="@dimen/scrollview_textview_size"
                 app:layout_constraintBottom_toBottomOf="@id/scrollview_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/scrollview_button"
@@ -147,7 +148,7 @@
                 android:id="@+id/scrollview_switch"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/scrollview_margin"
                 app:layout_constraintEnd_toStartOf="@id/scrollview_switch_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scrollview_button_text" />
@@ -158,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/switch_off"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp"
+                android:textSize="@dimen/scrollview_textview_size"
                 app:layout_constraintBottom_toBottomOf="@id/scrollview_switch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/scrollview_switch"
@@ -167,16 +168,15 @@
 
             <ImageView
                 android:id="@+id/scrollview_footer_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="50dp"
+                android:layout_width="@dimen/scrollview_image_size"
+                android:layout_height="@dimen/scrollview_image_size"
+                android:layout_marginTop="@dimen/scrollview_margin"
                 android:contentDescription="@string/description_footer_image"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_smile_32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scrollview_switch_text"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/scrollview_switch_text"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

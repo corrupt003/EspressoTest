@@ -6,7 +6,7 @@
     android:id="@+id/listview_item_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:padding="@dimen/listview_padding">
 
     <ImageView
         android:id="@+id/listview_item_image"
@@ -23,7 +23,7 @@
         android:id="@+id/listview_item_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/listview_margin"
         app:layout_constraintStart_toEndOf="@id/listview_item_image"
         app:layout_constraintEnd_toStartOf="@id/listview_item_checkbox"
         app:layout_constraintTop_toTopOf="parent"

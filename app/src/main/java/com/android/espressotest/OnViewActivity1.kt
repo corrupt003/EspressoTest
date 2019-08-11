@@ -2,8 +2,10 @@ package com.android.espressotest
 
 import android.com.espressotest.R
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -13,6 +15,10 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+
+
 
 class OnViewActivity1 : AppCompatActivity() {
 
@@ -32,6 +38,7 @@ class OnViewActivity1 : AppCompatActivity() {
     // TextView for the reply body
     private var mReplyTextView: TextView? = null
 
+    private lateinit var layout: ConstraintLayout
     private lateinit var scrollviewButton: Button
     private lateinit var scrollviewButtonTextView: TextView
     private lateinit var scrollviewSwitch: Switch
@@ -53,6 +60,7 @@ class OnViewActivity1 : AppCompatActivity() {
         mReplyHeadTextView = findViewById(R.id.text_header_reply)
         mReplyTextView = findViewById(R.id.text_message_reply)
 
+        layout = findViewById(R.id.scrollview_root)
         scrollviewButton = findViewById(R.id.scrollview_button)
         scrollviewButtonTextView = findViewById(R.id.scrollview_button_text)
         scrollviewSwitch = findViewById(R.id.scrollview_switch)
@@ -60,6 +68,11 @@ class OnViewActivity1 : AppCompatActivity() {
         scrollviewButtonTextView.text = getString(R.string.click_times, clickTime)
 
         setListeners()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        addViewsInScrollView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -88,6 +101,47 @@ class OnViewActivity1 : AppCompatActivity() {
             } else {
                 scrollviewSwitchTextView.text = getString(R.string.switch_off)
             }
+        }
+    }
+
+    /**
+     * All you need to know is that we create 5 TextViews and
+     * add it into ScrollView's main ViewGroup here.
+     */
+    private fun addViewsInScrollView() {
+        // Add 5 TextViews dynamically.
+        repeat(5) {
+            val textView = TextView(this)
+
+            // Setup the text size, color, content of the TextView.
+            val padding = resources.getDimensionPixelSize(R.dimen.default_padding)
+            textView.setPadding(padding, padding, padding, padding)
+            textView.setTextColor(Color.RED)
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.scrollview_textview_size))
+            val text = getString(R.string.view_create_dynamic, it + 1)
+            textView.text = text
+            textView.contentDescription = text
+            textView.id = it + 100
+
+            layout.addView(textView)
+
+            // Add some constraint here, because the only one child view
+            // inside ScrollView is ConstraintLayout.
+            val constraintSet = ConstraintSet()
+            constraintSet.clone(layout)
+            if (it == 0) {
+                constraintSet.connect(textView.id, ConstraintSet.TOP, R.id.scrollview_switch_text, ConstraintSet.BOTTOM, 0)
+            } else {
+                constraintSet.connect(textView.id, ConstraintSet.TOP, textView.id - 1, ConstraintSet.BOTTOM, 0)
+            }
+
+            constraintSet.connect(textView.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START, 0)
+            constraintSet.connect(textView.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END, 0)
+
+            if (it == 4) {
+                constraintSet.connect(R.id.scrollview_footer_image, ConstraintSet.TOP, textView.id, ConstraintSet.BOTTOM, 0)
+            }
+            constraintSet.applyTo(layout)
         }
     }
 
