@@ -1,4 +1,4 @@
-package android.com.espressotest
+package android.com.espressotest.practice
 
 import android.content.Context
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,5 +1,6 @@
-package android.com.espressotest
+package android.com.espressotest.answer
 
+import android.com.espressotest.R
 import android.widget.TextView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView

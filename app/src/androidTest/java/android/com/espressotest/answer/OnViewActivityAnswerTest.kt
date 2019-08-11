@@ -1,6 +1,7 @@
-package android.com.espressotest
+package android.com.espressotest.answer
 
 import actions.CustomAction.Companion.betterScrollTo
+import android.com.espressotest.R
 import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click

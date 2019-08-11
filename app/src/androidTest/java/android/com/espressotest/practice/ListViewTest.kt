@@ -1,4 +1,4 @@
-package android.com.espressotest
+package android.com.espressotest.practice
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
