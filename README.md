@@ -1,6 +1,6 @@
 # EspressoTest #
 
-A small project for practicing Android Espresso. Myabe include UI Automator in the future.
+A small project for practicing Android Espresso. Maybe include UI Automator in the future.
 
 ## Project Structure ##
 
@@ -13,17 +13,17 @@ It's the main package of the app code, define some [AppCompatActivity](https://d
 
 * OnViewActivity2: A very simple `Activity`, just want to practice how to Espresso to jump to another `Activity`.
 
-* ListViewActivity: The most important view inside the coressponding layout file (activity_listview.xml) is `ListView`, and we define some data to show using [ListView](https://developer.android.com/reference/android/widget/ListView) and [BaseAdapter](https://developer.android.com/reference/android/widget/BaseAdapter).
+* ListViewActivity: The most important view inside the corresponding layout file (activity_listview.xml) is `ListView`, and we define some data to show using [ListView](https://developer.android.com/reference/android/widget/ListView) and [BaseAdapter](https://developer.android.com/reference/android/widget/BaseAdapter).
 
 * RecyclerViewActivity: Like `ListViewActivity`, but change `ListView` to [RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView) , and define custom [Recycler.Adapter](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter) and [RecyclerView.ViewHolder](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ViewHolder) to convert data into UI.
 
 ### 2. app/src/androidTest ###
 
-A folder we can put our Espresso test class into it. There are test clasees respected to the Activity classes in app/src/main
+A folder we can put our Espresso test classes into it. There are test classes respected to the Activity classes in app/src/main
 
 #### android.com.espressotest.answer ####
 
-A folder to put ready-to-run test clesses
+A folder to put ready-to-run test classes
 
 * OnViewActivityAnswerTest: Contains some test cases use [Espresso.onView()](https://developer.android.com/reference/android/support/test/espresso/Espresso.html#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)) to find a specific view.
 
