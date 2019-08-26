@@ -46,4 +46,7 @@
     <string name="description_scrollview_button_text">Another TextView in ScrollView</string>
     <string name="description_scrollview_switch">Switch in ScrollView</string>
     <string name="description_scrollview_switch_text">TextView next to Switch</string>
+    <string name="description_text_header">Text header in OnViewActivity2</string>
+    <string name="description_text_message">Message received from OnViewActivity1</string>
+    <string name="description_button_reply">Click to send message back to OnViewActivity1</string>
 </resources>
