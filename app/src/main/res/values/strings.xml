@@ -37,4 +37,13 @@
 
     <string name="list_view_activity_title">ListView Page</string>
     <string name="recycler_view_view_activity_title">RecyclerView Page</string>
+
+    <string name="description_text_header_reply">Show reply title from OnViewActivity2</string>
+    <string name="description_text_message_reply">Show reply message from OnViewActivity2</string>
+    <string name="description_button_send">Click to send message to OnViewActivity2</string>
+    <string name="description_scrollview_textview">A TextView in ScrollView</string>
+    <string name="description_scrollview_button">A Button in ScrollView</string>
+    <string name="description_scrollview_button_text">Another TextView in ScrollView</string>
+    <string name="description_scrollview_switch">Switch in ScrollView</string>
+    <string name="description_scrollview_switch_text">TextView next to Switch</string>
 </resources>
