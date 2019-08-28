@@ -49,4 +49,8 @@
     <string name="description_text_header">Text header in OnViewActivity2</string>
     <string name="description_text_message">Message received from OnViewActivity1</string>
     <string name="description_button_reply">Click to send message back to OnViewActivity1</string>
+    <string name="description_listview_item_image">Show an image in list view item</string>
+    <string name="description_listview_item_title">Item title in list view item</string>
+    <string name="description_listview_item_message">Item message in list view item</string>
+    <string name="description_listview_item_checkbox">Checkbox in list view item</string>
 </resources>
