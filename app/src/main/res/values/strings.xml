@@ -53,4 +53,8 @@
     <string name="description_listview_item_title">Item title in list view item</string>
     <string name="description_listview_item_message">Item message in list view item</string>
     <string name="description_listview_item_checkbox">Checkbox in list view item</string>
+    <string name="description_recyclerview_item_image">Show an image in RecyclerView item</string>
+    <string name="description_recyclerview_item_title">Item title in RecyclerView item</string>
+    <string name="description_recyclerview_item_message">Item message in RecyclerView item</string>
+    <string name="description_recyclerview_item_switch">Switch in RecyclerView item</string>
 </resources>
