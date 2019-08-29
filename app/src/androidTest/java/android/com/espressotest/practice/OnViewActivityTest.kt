@@ -42,7 +42,7 @@ class OnViewActivityTest {
         // Step 1: Find button in OnViewActivity1 and click it.
         // Step 2: Find a TextView with id `R.id.text_header` in OnViewActivity2, and check it is displayed.
         // Step 3: Find button in OnViewActivity2 and click it.
-        // Step 4: Find a TextView with id `R.id.text_header_replay` in OnViewActivity1, and check it is displayed.
+        // Step 4: Find a TextView with id `R.id.text_header_reply` in OnViewActivity1, and check it is displayed.
     }
 
     @Test
