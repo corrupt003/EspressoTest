@@ -1,4 +1,4 @@
-package android.com.espressotest.answer
+package com.android.espressotest.answer
 
 import RecyclerViewActionsExtension.Companion.itemAtPosition
 import RecyclerViewActionsExtension.Companion.onChildView

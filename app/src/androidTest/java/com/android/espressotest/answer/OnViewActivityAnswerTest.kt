@@ -1,4 +1,4 @@
-package android.com.espressotest.answer
+package com.android.espressotest.answer
 
 import actions.CustomAction.Companion.betterScrollTo
 import android.com.espressotest.R

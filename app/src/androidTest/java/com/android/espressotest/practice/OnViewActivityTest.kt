@@ -1,4 +1,4 @@
-package android.com.espressotest.practice
+package com.android.espressotest.practice
 
 import android.content.Context
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -72,6 +72,6 @@ class OnViewActivityTest {
         // Step 4: Find the TextView with id `scrollview_switch_text` in ScrollView.
         // Step 5: Check the view display the text `Switch ON` or not.
 
-        // Bones: What if we use `NestedScrollView` instead of `ScrollView` in the layout file?
+        // Bonus: What if we use `NestedScrollView` instead of `ScrollView` in the layout file?
     }
 }
